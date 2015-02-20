@@ -9,6 +9,7 @@ import hibernate.Inmueble;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -85,7 +86,43 @@ public class Controlador extends HttpServlet {
             inmueble.setPrecio(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precio"))));
             inmueble.setId(Integer.parseInt(request.getParameter("id")));
             ModeloInmueble.edit(inmueble);
+        }else if (target.equals("inmueble")
+                && op.equals("insert")
+                && action.equals("movil")) {
+            System.out.println("bbbbbbbbbbbbbb");
+            forward = true;
+            destino = "WEB-INF/inmueble/id.jsp";
+            Inmueble inmueble = new Inmueble();
+            inmueble.setTipo(request.getParameter("tipo"));
+            inmueble.setDireccion(request.getParameter("direccion"));
+            inmueble.setLocalidad(request.getParameter("localidad"));
+            inmueble.setUsuario(request.getParameter("usuario"));
+            inmueble.setPrecio(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precio"))));
+            ModeloInmueble.insert(inmueble);
+            List<Inmueble> lista = ModeloInmueble.get();
+            int id = lista.get(lista.size()-1).getId();
+            request.setAttribute("id", id);
+        }else if (target.equals("inmueble")
+                && op.equals("insert")
+                && action.equals("prueba")) {
+            forward = false;
+            destino = "WEB-INF/inmueble/id.jsp";
+            Inmueble inmueble = new Inmueble();
+            inmueble.setTipo(request.getParameter("tipo"));
+            inmueble.setDireccion(request.getParameter("direccion"));
+            inmueble.setLocalidad(request.getParameter("localidad"));
+            inmueble.setUsuario(request.getParameter("usuario"));
+            inmueble.setPrecio(BigDecimal.valueOf(Double.parseDouble(request.getParameter("precio"))));
+            ModeloInmueble.insert(inmueble);
+            List<Inmueble> lista = ModeloInmueble.get();
+            int id = lista.get(lista.size()-1).getId();
+            request.setAttribute("id", id);
         }
+//        else if(target.equals("inmueble")
+//                && op.equals("insert")
+//                && action.equals("op")){
+//            
+//        }
 //        } else if (target.equals("inmueble")
 //                && op.equals("foto")
 //                && action.equals("view")) {

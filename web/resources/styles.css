@@ -1,0 +1,46 @@
+body{
+    background-color: grey
+}
+
+.contenedor{
+    width: 800px;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.img{
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#entrar{
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.inmuebles{
+    border: black solid 1px;
+    border-collapse: collapse;
+}
+
+.inmuebles td{
+    padding: 0.3em;
+    background-color: white;
+}
+
+.inmuebles th{
+    padding: 0.3em;
+    background-color: lightsteelblue;
+}
+
+.icono{
+    width: 20px;
+    height: 20px;
+}

@@ -64,7 +64,7 @@ public class Subida extends HttpServlet {
             String id = request.getParameter("id");
             destino = "control?target=inmueble&op=select&action=view";
             System.out.println("aaaaaaaaaaaaa fotos insert op" );
-            Part filePart = request.getPart("file"); 
+            Part filePart = request.getPart("foto"); 
             InputStream fileContent = filePart.getInputStream();
             String fecha = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String fileName = "img/Inmueble_"+fecha+"_"+id+".jpg";
